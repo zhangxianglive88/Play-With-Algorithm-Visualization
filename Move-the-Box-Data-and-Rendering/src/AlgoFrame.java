@@ -18,6 +18,7 @@ public class AlgoFrame extends JFrame{
         super(title);
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
+
         AlgoCanvas canvas = new AlgoCanvas();
         setContentPane(canvas);
         pack();
@@ -44,8 +45,10 @@ public class AlgoFrame extends JFrame{
         public AlgoCanvas(){
             // 双缓存
             super(true);
+
             colorMap = new HashMap<Character, Color>();
             colorList = new ArrayList<Color>();
+
             colorList.add(AlgoVisHelper.Red);
             colorList.add(AlgoVisHelper.Purple);
             colorList.add(AlgoVisHelper.Blue);
@@ -64,12 +67,12 @@ public class AlgoFrame extends JFrame{
 
             Graphics2D g2d = (Graphics2D)g;
 
-            // 抗锯齿
-            RenderingHints hints = new RenderingHints(
-                    RenderingHints.KEY_ANTIALIASING,
-                    RenderingHints.VALUE_ANTIALIAS_ON);
-            hints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-            g2d.addRenderingHints(hints);
+//            // 抗锯齿
+//            RenderingHints hints = new RenderingHints(
+//                    RenderingHints.KEY_ANTIALIASING,
+//                    RenderingHints.VALUE_ANTIALIAS_ON);
+//            hints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+//            g2d.addRenderingHints(hints);
 
             // 具体绘制
             int w = canvasWidth/data.M();
@@ -82,10 +85,11 @@ public class AlgoFrame extends JFrame{
 
             // 现在这个showBoard就是实际要绘制的盘面
             Board showBoard = data.getShowBoard();
+
             for(int i = 0; i < showBoard.N(); i++)
                 for(int j = 0; j < showBoard.M(); j++){
                     char c = showBoard.getData(i, j);
-                    if(c != showBoard.EMPTY){
+                    if(c != Board.EMPTY){
                         if(!colorMap.containsKey(c)){
                             int sz = colorMap.size();
                             colorMap.put(c, colorList.get(sz));
@@ -93,10 +97,13 @@ public class AlgoFrame extends JFrame{
                         Color color = colorMap.get(c);
                         AlgoVisHelper.setColor(g2d, color);
                         AlgoVisHelper.fillRectangle(g2d, j*h+2, i*w+2, w-4, h-4);
+
+                        // 在每个箱子的中心位置添加该箱子对应的坐标
+                        AlgoVisHelper.setColor(g2d, AlgoVisHelper.White);
+                        String text = String.format("(%d, %d)", i, j);
+                        AlgoVisHelper.drawText(g2d, text, j*h + h/2, i*w + w/2);
                     }
                 }
-
-
         }
 
         @Override

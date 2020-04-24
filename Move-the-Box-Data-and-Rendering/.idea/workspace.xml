@@ -10,10 +10,11 @@
   </component>
   <component name="ProjectId" id="1ayRiDtc3BlD94TOZ3O1oARxcHL" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/level" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Play-With-Algorithm-Visualization\Move-the-Box-Solver\level" />
       <recent name="D:\Play-With-Algorithm-Visualization\Move-the-Box-Solver" />
       <recent name="D:\Play-With-Algorithm-Visualization\Move-the-Box-Solver\src" />
     </key>
@@ -70,19 +71,5 @@
       <updated>1587705971555</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/AlgoVisualizer.java</url>
-          <line>37</line>
-          <properties class="AlgoVisualizer" method="main">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
